@@ -20,7 +20,7 @@
 #orig 
 #chromium_crosswalk_rev = 'dd39e4fbbc1e4417cef2f908cc0a42af1e2120aa'
 
-chromium_crosswalk_rev = '3362c4802de1d6d6341a02ae4463754d22079e6d'
+chromium_crosswalk_rev = '638d1605266c6f418d676bb52e8acc840a9211c0'
 #ab583b52a0576ccf60c791df6642f0ee195291d0'
 #5d68d90dcaff8042649baabca842f28249a95036'
 #f34cb69c9514aa22f3b34e1bc71562efb49d2d6c'
@@ -45,7 +45,7 @@ buildtools_rev = '505de88083136eefd056e5ee4ca0f01fe9b33de8'
 #b3771b1935ea74c388b6fb1750e83f5d83b39dec'
 
 chromium_git = 'https://chromium.googlesource.com'
-ks_git = 'https://github.com/ks32'
+LP_git = 'https://github.com/liuran88'
 
 # ------------------------------------------------------
 # gclient solutions.
@@ -54,19 +54,19 @@ ks_git = 'https://github.com/ks32'
 
 solutions = [
   { 'name': 'src',
-    'url': ks_git + '/chromium-crosswalk.git@' + chromium_crosswalk_rev,
+    'url': LP_git + '/chromium-crosswalk.git@' + chromium_crosswalk_rev,
     'deps_file': '.DEPS.git',
     'managed': True,
     'custom_deps': {
       'src':
-        ks_git + '/chromium-crosswalk.git@' + chromium_crosswalk_rev,
+        LP_git + '/chromium-crosswalk.git@' + chromium_crosswalk_rev,
       'src/v8':
-        ks_git + '/v8-crosswalk.git@' + v8_crosswalk_rev,
+        LP_git + '/v8-crosswalk.git@' + v8_crosswalk_rev,
 
       # Include Intel RSSDK headers and library loader for RealSense camera
       # support.
       'src/third_party/libpxc':
-        ks_git + '/libpxc.git@568e4ecc969b4663e82034e71d08efdd5fa77e1a',
+        LP_git + '/libpxc.git@568e4ecc969b4663e82034e71d08efdd5fa77e1a',
 
       # These directories are not relevant to Crosswalk and can be safely ignored
       # in a checkout. It avoids creating additional directories outside src/ that
