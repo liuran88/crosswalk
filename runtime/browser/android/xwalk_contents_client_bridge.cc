@@ -605,16 +605,17 @@ static void JNI_XWalkContentsClientBridge_OnFilesSelected(JNIEnv* env, int proce
   std::vector<FileChooserFileInfoPtr> files;
   files.reserve(file_path_str.size());
   for (size_t i = 0; i < file_path_str.size(); ++i) {
-    GURL url(file_path_str[i]);
-    if (!url.is_valid())
-      continue;
+// by yu fix updafile
+//    GURL url(file_path_str[i]);
+//    if (!url.is_valid())
+//     continue;
     base::FilePath path;
-    if (url.SchemeIsFile()) {
-      if (!net::FileURLToFilePath(url, &path))
-        continue;
-    } else {
+//    if (url.SchemeIsFile()) {
+ //     if (!net::FileURLToFilePath(url, &path))
+ //       continue;
+//    } else {
       path = base::FilePath(file_path_str[i]);
-    }
+//    }
     auto file_info = blink::mojom::NativeFileInfo::New();
     file_info->file_path = path;
     if (!display_name_str[i].empty())
